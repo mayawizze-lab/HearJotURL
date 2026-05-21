@@ -859,7 +859,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     downloadLinks.forEach(link => {
-        link.addEventListener('click', async (e) => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
             const name = window.prompt('ก่อนดาวน์โหลด กรุณาพิมพ์ชื่อผู้ดาวน์โหลด (จำเป็น)');
             if (!name || !name.trim()) return;
@@ -874,9 +874,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 page: window.location.href
             };
             saveDownloadLog(logItem);
-            await postDownloadLog(logItem);
-
             window.open(link.href, '_blank', 'noopener,noreferrer');
+            postDownloadLog(logItem);
         });
     }
 
