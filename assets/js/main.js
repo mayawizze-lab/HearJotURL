@@ -846,12 +846,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function postDownloadLog(item) {
         if (!downloadLogEndpoint || downloadLogEndpoint.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) return;
+        const payload = JSON.stringify(item);
         try {
+            if (navigator.sendBeacon) {
+                const blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+                if (navigator.sendBeacon(downloadLogEndpoint, blob)) return;
+            }
             await fetch(downloadLogEndpoint, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(item),
+                body: payload,
                 keepalive: true
             });
         } catch (err) {
