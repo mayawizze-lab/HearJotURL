@@ -867,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const name = window.prompt('ก่อนดาวน์โหลด กรุณาพิมพ์ชื่อผู้ดาวน์โหลด (จำเป็น)');
+            const name = window.prompt('May I know you name plase..');
             if (!name || !name.trim()) return;
 
             const platform = link.href.includes(macUrlPart) ? 'mac' : 'windows';
