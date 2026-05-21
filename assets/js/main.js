@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: 'สวัสดีครับ วันนี้ประชุมสรุปงบ Q2 และ Roadmap ไตรมาสถัดไปของแผนก ขอให้ทุกคนช่วยสรุปประเด็นด้วยนะครับ',
             note: {
                 ts: '00:02',
-                text: '<strong>เปิดประชุม:</strong> สรุปงบ Q2 และ Roadmap ไตรมาสถัดไป'
+                text: '<strong>โน้ตผู้ใช้:</strong> เปิดประชุมเรื่องงบ Q2 และ Roadmap ไตรมาสถัดไป'
             }
         },
         {
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: 'งบ Q2 เราใช้ไป 82% จากที่วางแผนไว้ ส่วนที่เหลือแนะนำย้ายไป Q3 เพื่อรองรับโปรเจกต์ AI Automation ค่ะ',
             note: {
                 ts: '00:09',
-                text: '<strong>งบ Q2:</strong> ใช้ไป 82% · แนะนำย้าย 18% ที่เหลือ → Q3 เพื่อ AI Automation'
+                text: '<strong>โน้ตผู้ใช้:</strong> งบ Q2 ใช้ไป 82% · ย้าย 18% ที่เหลือไป Q3 เพื่อ AI Automation'
             }
         },
         {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text: 'โอเคครับ ขอให้อัญชลีทำ Report สรุปงบให้เสร็จภายในวันศุกร์นี้นะครับ แล้วส่งให้ทีม Director ตรวจสอบ',
             note: {
                 ts: '00:16',
-                text: '<strong>Action Item:</strong> คุณอัญชลี → ส่ง Budget Report ภายในวันศุกร์'
+                text: '<strong>โน้ตผู้ใช้:</strong> คุณอัญชลีส่ง Budget Report ภายในวันศุกร์'
             }
         },
         {
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Header if first note
         if (!awNotebook.querySelector('.sim-note-header')) {
             const h = el('div', 'sim-note-header');
-            h.innerHTML = '<i class="fas fa-book-open" style="color:var(--blue)"></i> สรุปการประชุม Q2 Review';
+            h.innerHTML = '<i class="fas fa-book-open" style="color:var(--blue)"></i> Notebook ที่ผู้ใช้จดระหว่างประชุม';
             awNotebook.appendChild(h);
         }
 
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         intro.innerHTML = `
             <div class="sim-mem-badge"><i class="fas fa-brain"></i> Active Memory: Session 0/20</div>
             <strong><i class="fas fa-sparkles" style="color:var(--blue)"></i> HearJot AI Assistant:</strong><br>
-            สวัสดีค่ะ! ถอดเสียงการประชุม <strong>"Q2 Budget Review"</strong> เสร็จสิ้นแล้ว มีทั้งหมด 3 ประเด็นสำคัญที่จดในโน้ตค่ะ<br><br>
+            สวัสดีค่ะ! ถอดเสียงการประชุม <strong>"Q2 Budget Review"</strong> เสร็จสิ้นแล้ว และพบโน้ตที่ผู้ใช้จดไว้ 3 จุดสำหรับใช้อ้างอิงค่ะ<br><br>
             ลองคลิกคำถามด่วนด้านล่างหรือพิมพ์คุยได้เลยค่ะ:
             <div class="sim-quick-btns">
                 <button class="sim-qbtn" data-q="สรุปประเด็นหลัก 3 ข้อ"><i class="fas fa-list-ul"></i> สรุปประเด็นหลักทั้งหมด</button>
@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
         awNotebook.innerHTML = `
             <div class="aw-empty" id="awNotebookEmpty">
                 <i class="fas fa-file-signature"></i>
-                <p>พื้นที่จดโน้ตระหว่างประชุม: ใช้อ้างอิงแก้ transcript และเติมรายละเอียดเพิ่มเติม</p>
+                <p>พื้นที่ให้ผู้ใช้จดเองระหว่างประชุม เพื่ออ้างอิง แก้ transcript และเติมบริบทสำคัญ</p>
             </div>
         `;
         awChat.innerHTML = `
