@@ -1,3 +1,3 @@
 window.HEARJOT_CONFIG = {
-  downloadLogEndpoint: 'https://script.google.com/macros/s/AKfycbykEzmZJ5huupXU1Abmf_Vd99CvHAjnBC9rKXSRTFiuN9lFc-tPoIA4cOelA5ER0NwFHQ/exec'
+  downloadLogEndpoint: 'https://script.google.com/macros/s/AKfycbwRNsZGAEQ3y1D0dlpYL6JdHUXrlg9Z7qfmClD_LIoyQ1XSFpmBmit6M9bE0U3bpqnWXw/exec'
 };
