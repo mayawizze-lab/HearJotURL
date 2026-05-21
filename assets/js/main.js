@@ -877,6 +877,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(link.href, '_blank', 'noopener,noreferrer');
             postDownloadLog(logItem);
         });
-    }
+    });
 
 });
