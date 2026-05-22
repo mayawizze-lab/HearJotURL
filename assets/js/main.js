@@ -824,12 +824,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     // 13. DOWNLOAD TRACKING (No backend): prompt name + local log
     // ============================================================
-    const macUrlPart = 'IQBsIDFECaj7SqlS2QqbGKqaAYcRcl02a8NBImE1QCivSb8';
-    const winUrlPart = 'IQDfhtNh5DTmTazQTfmgp4m2AdzU2iyCAu1CatCaR_Kp2BQ';
     const downloadLogEndpoint = (window.HEARJOT_CONFIG && window.HEARJOT_CONFIG.downloadLogEndpoint)
         ? window.HEARJOT_CONFIG.downloadLogEndpoint
         : '';
-    const downloadLinks = document.querySelectorAll(`a[href*="${macUrlPart}"], a[href*="${winUrlPart}"]`);
+    const downloadLinks = document.querySelectorAll('a.dl-link[data-platform]');
 
     function saveDownloadLog(item) {
         const key = 'hearjot_download_logs';
@@ -870,7 +868,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = window.prompt('May I know you name plase..');
             if (!name || !name.trim()) return;
 
-            const platform = link.href.includes(macUrlPart) ? 'mac' : 'windows';
+            const platform = link.dataset.platform || 'unknown';
             const logItem = {
                 name: name.trim(),
                 platform,
