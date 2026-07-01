@@ -822,11 +822,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 13. DOWNLOAD TRACKING (No backend): prompt name + local log
+    // 13. DOWNLOAD TRACKING (No backend): local log only
     // ============================================================
-    const downloadLogEndpoint = (window.HEARJOT_CONFIG && window.HEARJOT_CONFIG.downloadLogEndpoint)
-        ? window.HEARJOT_CONFIG.downloadLogEndpoint
-        : '';
     const downloadLinks = document.querySelectorAll('a.dl-link[data-platform]');
 
     function saveDownloadLog(item) {
@@ -842,35 +839,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(key, JSON.stringify(logs));
     }
 
-    async function postDownloadLog(item) {
-        if (!downloadLogEndpoint || downloadLogEndpoint.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) return;
-        const payload = JSON.stringify(item);
-        try {
-            if (navigator.sendBeacon) {
-                const blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
-                if (navigator.sendBeacon(downloadLogEndpoint, blob)) return;
-            }
-            await fetch(downloadLogEndpoint, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: payload,
-                keepalive: true
-            });
-        } catch (err) {
-            console.warn('postDownloadLog failed:', err);
-        }
-    }
-
     downloadLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const name = window.prompt('May I know you name plase..');
-            if (!name || !name.trim()) return;
-
             const platform = link.dataset.platform || 'unknown';
             const logItem = {
-                name: name.trim(),
+                name: 'Anonymous',
                 platform,
                 url: link.href,
                 time: new Date().toISOString(),
@@ -878,8 +851,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 page: window.location.href
             };
             saveDownloadLog(logItem);
-            window.open(link.href, '_blank', 'noopener,noreferrer');
-            postDownloadLog(logItem);
         });
     });
 
