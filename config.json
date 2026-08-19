@@ -1,3 +1,10 @@
 {
-  "baseUrl": "https://gpt.mfec.co.th/litellm"
+  "baseUrl": "https://gpt.mfec.co.th/litellm",
+  "update": {
+    "version": "2.0.3",
+    "notes": "แก้ไฟล์อัดเสียงที่เปิดไม่ได้",
+    "mac": {
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.0.2-arm64.dmg?d=w9602fbd636d4419a9fcf445ef2541301&csf=1&download=1&e=oqdn7g"
+    }
+  }
 }
