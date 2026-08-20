@@ -1,7 +1,7 @@
 {
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "update": {
-    "version": "2.0.3",
+    "version": "2.0.4",
     "notes": "แจ้งเตือนเวอร์ชันใหม่ในแอป, prompt preset ไม่หายอีก, ปรับ layout ตัวเล่นเสียง",
     "mac": {
       "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.0.3-arm64.dmg?d=w50af43601cef4df99342842b6723aab9&csf=1&download=1&e=vhJpZT"
