@@ -1,13 +1,13 @@
 {
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "update": {
-    "version": "2.0.3",
-    "notes": "แจ้งเตือนเวอร์ชันใหม่ในแอป, prompt preset ไม่หายอีก, ปรับ layout ตัวเล่นเสียง",
+    "version": "2.0.4",
+    "notes": "Team Sync is come back! ไมค์ HearJot เปิด/ปิดตามปุ่ม mute ใน Microsoft Teams อัตโนมัติ",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.0.3-arm64.dmg?d=wf0109a8ecf8745bcb70403d68ea4128a&csf=1&download=1&e=OFSbfu"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.0.4-arm64.dmg?d=w4aeb6c44927340598f5d5b71479312ed&csf=1&download=1&e=MuxxhR"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.0.3.exe?d=w43e3a28d4540490487108e1a695f7948&csf=1&download=1&e=e2xLUS"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.0.4.exe?d=wb2e5e05447974b888136a2255b2c498c&csf=1&download=1&e=YeTFWy"
     }
   }
 }
