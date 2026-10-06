@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://gpt.mfec.co.th/litellm",
-  "flowlioUrl": "http://dmhub.ios-dm.com/Flowlio",
+  "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
     "version": "2.3.0",
     "notes": "HearJot 2.3.0 — New Features: Silence Speakers & No More Missing Transcript 🎉",
