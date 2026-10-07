@@ -2,13 +2,369 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "2.3.2",
-    "notes": "HearJot 2.3.2 — Delete the AI’s activity cards in chat & clearer silence warning",
+    "version": "2.3.3",
+    "notes": "HearJot 2.3.3 — What's new: every feature since 1.0, version by version",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.2-arm64.dmg?d=w79de84512e914b1cbd2a0c9c576da32d&csf=1&download=1&e=mdkHnU"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.3-arm64.dmg?d=wc93fbcbd310248f19ed1c4c7a90e1abb&csf=1&download=1&e=sGgYLy"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.2.exe?d=w8562d033367a4b8e8ee74a3034a4aac1&csf=1&download=1&e=tFuCUG"
-    }
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.3.exe?d=wcda08e05d36d42eca9e512da1896c62c&csf=1&download=1&e=fbxs5J"
+    },
+    "releases": [
+      {
+        "version": "2.3.3",
+        "date": "2026-10-07",
+        "features": [
+          {
+            "title": "What's new list",
+            "detail": "ดูของใหม่ทุกเวอร์ชันได้จากแถบแจ้งอัปเดตหรือหน้า About"
+          }
+        ]
+      },
+      {
+        "version": "2.3.2",
+        "date": "2026-10-07",
+        "features": [
+          {
+            "title": "Delete AI activity in chat",
+            "detail": "ลบการ์ดกิจกรรมของ AI ในแชต Assistant ได้ และการ์ดในไฟล์ที่เปิดกลับมากดกางดูได้อีกครั้ง"
+          },
+          {
+            "title": "Clearer silence warning",
+            "detail": "แถบเตือนบอกตรงๆ ว่า \"ไม่มีเสียงออกจากเครื่อง\""
+          }
+        ]
+      },
+      {
+        "version": "2.3.1",
+        "date": "2026-10-07",
+        "features": [
+          {
+            "title": "Faster update notices",
+            "detail": "แจ้งเวอร์ชันใหม่ได้ระหว่างที่เปิดแอปอยู่ ไม่ต้องรอวันถัดไปหรือปิดแล้วเปิดใหม่"
+          },
+          {
+            "title": "Flowlio sign-in with Microsoft",
+            "detail": "ล็อกอิน Flowlio ด้วยบัญชี MFEC และเชื่อมกับที่อยู่ใหม่ dmhub.mfec.dev"
+          }
+        ]
+      },
+      {
+        "version": "2.3.0",
+        "date": "2026-10-05",
+        "features": [
+          {
+            "title": "Silence speakers",
+            "detail": "ปิดเสียงลำโพงของเครื่องระหว่างอัด HearJot ยังได้ยินเสียงประชุมครบ ห้องประชุมจึงไม่ก้อง"
+          },
+          {
+            "title": "Couldn't transcribe",
+            "detail": "ช่วงที่ AI ถอดความไม่สำเร็จจะขึ้นเป็นแถบในบทถอดความ กดถอดใหม่ได้ ไม่หายไปเงียบๆ"
+          },
+          {
+            "title": "Transcribe File starts at once",
+            "detail": "ถอดความจากไฟล์แล้วข้อความทยอยขึ้นทันที ไม่ต้องรอจนจบไฟล์"
+          },
+          {
+            "title": "macOS 12 and later",
+            "detail": "Teams sync และ Silence speakers ใช้ได้บน Mac ตั้งแต่ macOS 12 ขึ้นไป"
+          }
+        ]
+      },
+      {
+        "version": "2.2.0",
+        "date": "2026-10-04",
+        "features": [
+          {
+            "title": "Send to Flowlio",
+            "detail": "ส่งเซสชัน ไฟล์เสียง และ Minutes เข้า Flowlio ได้ในครั้งเดียว"
+          },
+          {
+            "title": "Auto microphone",
+            "detail": "เลือกไมค์ให้อัตโนมัติ และสลับตามเมื่อเปลี่ยนจากไมค์โน้ตบุ๊กเป็นหูฟังระหว่างประชุม"
+          },
+          {
+            "title": "New model picker",
+            "detail": "เมนูเลือก model แบบใหม่ที่เอา Gemini ขึ้นก่อน รายการ model ตรงกับ API key และแจ้งข้อผิดพลาดเป็นภาษาไทย"
+          }
+        ]
+      },
+      {
+        "version": "2.1.0",
+        "date": "2026-08-29",
+        "features": [
+          {
+            "title": "Export Minutes of Meeting",
+            "detail": "เลือกเนื้อหาจากแชตและโน้ต ให้ AI จัดลงฟอร์ม Minutes ของ PMO MFEC แก้ในหน้าตัวอย่าง แล้วบันทึกเป็น Word"
+          },
+          {
+            "title": "Assistant shows its steps",
+            "detail": "Assistant บอกทีละขั้นว่ากำลังทำอะไร และคำตอบทยอยขึ้นสดๆ"
+          },
+          {
+            "title": "Notebook timestamps",
+            "detail": "ใส่เวลาในโน้ตได้จากปุ่มบนแถบเครื่องมือ จาก Shift+Enter หรือจากนาฬิกาจางๆ ที่บรรทัดว่าง"
+          },
+          {
+            "title": "Gemini 3.5 Flash",
+            "detail": "model ใหม่ ตั้งเป็นค่าเริ่มต้น"
+          },
+          {
+            "title": "Mac permissions kept",
+            "detail": "อัปเดตแล้วไม่ต้องให้สิทธิ์ไมค์และอัดหน้าจอใหม่"
+          },
+          {
+            "title": "Long sessions open smoothly",
+            "detail": "เปิดเซสชันยาวๆ ได้โดยแอปไม่ค้าง"
+          }
+        ]
+      },
+      {
+        "version": "2.0.4",
+        "date": "2026-08-21",
+        "features": [
+          {
+            "title": "Teams mute sync",
+            "detail": "ไมค์ HearJot เปิด/ปิดตามปุ่ม mute ใน Microsoft Teams อัตโนมัติ ทั้ง Mac และ Windows"
+          }
+        ]
+      },
+      {
+        "version": "2.0.3",
+        "date": "2026-08-19",
+        "features": [
+          {
+            "title": "Update notice",
+            "detail": "แจ้งในแอปเมื่อมีเวอร์ชันใหม่"
+          },
+          {
+            "title": "Prompt presets kept",
+            "detail": "preset ที่สร้างไว้ไม่หายแล้ว"
+          }
+        ]
+      },
+      {
+        "version": "2.0.2",
+        "date": "2026-08-19",
+        "features": [
+          {
+            "title": "Translation follows each line",
+            "detail": "ทิศทางการแปลดูจากภาษาของแต่ละบรรทัด บทถอดความที่มีไทยปนอังกฤษสลับดูได้ทั้งสองภาษา"
+          },
+          {
+            "title": "Quicker lines",
+            "detail": "ส่งเสียงให้ AI ทุก 7 วินาที และถ้าพูดสั้นๆ แล้วหยุด ข้อความขึ้นทันที"
+          }
+        ]
+      },
+      {
+        "version": "2.0.1",
+        "date": "2026-08-18",
+        "features": [
+          {
+            "title": "Record right away",
+            "detail": "กด Record แล้วเริ่มทันที ไม่ต้องเลือกหน้าจอ ตั้งชื่อไฟล์ทีหลังได้"
+          },
+          {
+            "title": "Save anytime",
+            "detail": "Save ได้ตั้งแต่เริ่มอัด และบันทึกอัตโนมัติเมื่อตั้งชื่อไฟล์แล้ว"
+          },
+          {
+            "title": "Translate on/off",
+            "detail": "ปุ่มเดียวเปิดหรือปิดการแปล"
+          },
+          {
+            "title": "Chunk gauge",
+            "detail": "มาตรวัดแสดงเสียงช่วงที่กำลังจะส่งให้ AI"
+          },
+          {
+            "title": "Safe close",
+            "detail": "ถ้าปิดแอประหว่างอัด แอปจะถามก่อน"
+          }
+        ]
+      },
+      {
+        "version": "2.0.0",
+        "date": "2026-08-16",
+        "features": [
+          {
+            "title": "Live translation",
+            "detail": "แปลบทถอดความเป็นอีกภาษาได้ระหว่างประชุม"
+          },
+          {
+            "title": "Repetition cleanup",
+            "detail": "ตัดคำที่ AI ถอดซ้ำวนๆ ออกให้อัตโนมัติ เช่น \"ทุกคนครับ\" 40 ครั้ง"
+          }
+        ]
+      },
+      {
+        "version": "1.7.6",
+        "date": "2026-07-15",
+        "features": [
+          {
+            "title": "Automatic retry",
+            "detail": "ถ้า AI ถอดเสียงพลาดชั่วคราว แอปส่งซ้ำให้เอง"
+          }
+        ]
+      },
+      {
+        "version": "1.7.5",
+        "date": "2026-07-08",
+        "features": [
+          {
+            "title": "Export transcript to Markdown",
+            "detail": "ส่งออกบทถอดความพร้อมเวลาเป็นไฟล์ .md"
+          },
+          {
+            "title": "Full Detail preset",
+            "detail": "preset ให้ AI เรียบเรียงบทถอดความครบทุกประเด็น ไม่ตกหล่น"
+          }
+        ]
+      },
+      {
+        "version": "1.7.4",
+        "date": "2026-07-04",
+        "features": [
+          {
+            "title": "Separate transcription and chat models",
+            "detail": "ตั้ง model สำหรับถอดเสียงกับ model สำหรับแชตแยกกันได้"
+          },
+          {
+            "title": "Microphone picker",
+            "detail": "เลือกไมค์ได้จากหน้าต่างตั้งค่าไมค์"
+          }
+        ]
+      },
+      {
+        "version": "1.7.0",
+        "date": "2026-05-22",
+        "features": [
+          {
+            "title": "Mini Mode",
+            "detail": "ย่อเป็นหน้าต่างโน้ตเล็ก ปักไว้บนสุด (Pin) และสลับแนวตั้ง/แนวนอนได้"
+          }
+        ]
+      },
+      {
+        "version": "1.6.2",
+        "date": "2026-05-21",
+        "features": [
+          {
+            "title": "Faster file transcription",
+            "detail": "ถอดความจากไฟล์เร็วขึ้น ข้อความเรียงตามเวลา"
+          },
+          {
+            "title": "Pause auto-scroll",
+            "detail": "หยุดการเลื่อนอัตโนมัติเมื่ออยากอ่านย้อน"
+          },
+          {
+            "title": "Mac permission guide",
+            "detail": "หน้าต่างแนะนำการให้สิทธิ์บน Mac แบบลากวาง"
+          }
+        ]
+      },
+      {
+        "version": "1.6.1",
+        "date": "2026-05-20",
+        "features": [
+          {
+            "title": "Delete chat messages",
+            "detail": "ชี้ที่ข้อความในแชตแล้วกดลบได้"
+          },
+          {
+            "title": "Teams meeting pairing",
+            "detail": "Teams sync จับคู่กับประชุมที่กำลังคุยอยู่ให้เอง"
+          }
+        ]
+      },
+      {
+        "version": "1.5.0",
+        "date": "2026-05-19",
+        "features": [
+          {
+            "title": "Teams mic sync",
+            "detail": "ไมค์ HearJot กับปุ่ม mute ใน Teams เปิด/ปิดตามกันทั้งสองทาง"
+          }
+        ]
+      },
+      {
+        "version": "1.4.0",
+        "date": "2026-05-19",
+        "features": [
+          {
+            "title": "Search transcript",
+            "detail": "ค้นหาคำในบทถอดความ (Cmd+F)"
+          },
+          {
+            "title": "Export chat to Markdown",
+            "detail": "ส่งออกแชต AI Assistant เป็นไฟล์ .md"
+          },
+          {
+            "title": "Close protection",
+            "detail": "ถามก่อนปิดแอปถ้ายังไม่ได้บันทึก"
+          }
+        ]
+      },
+      {
+        "version": "1.3.0",
+        "date": "2026-05-18",
+        "features": [
+          {
+            "title": "Windows system audio",
+            "detail": "อัดเสียงจากเครื่องบน Windows ได้ถูกต้อง และเสียงไมค์ไม่รั่วไปปน"
+          }
+        ]
+      },
+      {
+        "version": "1.2",
+        "date": "2026-05-16",
+        "features": [
+          {
+            "title": "Level meter",
+            "detail": "มาตรวัดระดับเสียงจากเครื่องและไมค์"
+          },
+          {
+            "title": "New status badges",
+            "detail": "ป้ายสถานะการเชื่อมต่อ AI แบบใหม่"
+          }
+        ]
+      },
+      {
+        "version": "1.1",
+        "date": "2026-05-16",
+        "features": [
+          {
+            "title": "Windows support",
+            "detail": "ใช้งานบน Windows ได้"
+          }
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-05-14",
+        "features": [
+          {
+            "title": "Live transcription",
+            "detail": "ถอดเสียงประชุมสดจากเสียงในเครื่องและไมค์ แสดงเป็นบับเบิลพร้อมเวลา"
+          },
+          {
+            "title": "Notebook",
+            "detail": "จดโน้ตแบบ rich text วางรูป ปรับขนาดรูป และใส่เวลาได้"
+          },
+          {
+            "title": "Snapshot",
+            "detail": "กดคีย์ลัดจับภาพหน้าจอลงโน้ตพร้อมเวลา"
+          },
+          {
+            "title": "AI Assistant",
+            "detail": "สรุปประชุมและถามตอบจากบทถอดความ พร้อมลิงก์กลับไปยังช่วงที่อ้างถึง"
+          },
+          {
+            "title": "Session files (.jot)",
+            "detail": "บันทึกเซสชันแล้วเปิดกลับมาทำต่อได้"
+          }
+        ]
+      }
+    ]
   }
 }
