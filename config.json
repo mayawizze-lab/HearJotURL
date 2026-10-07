@@ -2,13 +2,13 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "2.3.0",
-    "notes": "HearJot 2.3.0 — New Features: Silence Speakers & No More Missing Transcript 🎉",
+    "version": "2.3.1",
+    "notes": "HearJot 2.3.1 — Faster update notices & Flowlio sign-in with MFEC (Microsoft)",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.0-arm64.dmg?d=w91b0dfc842184f04b02c26a49c8720e2&csf=1&download=1&e=ey3fMk"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.1-arm64.dmg?d=w619a4683908e4a6297ee6c10b101ae12&csf=1&download=1&e=Mpc0W0"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.0.exe?d=wf8339b5b91754a5b9e480eae08ad39e4&csf=1&download=1&e=WrhBdm"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.1.exe?d=w6d2d63500b8d403bbcc30dc40a4b8b22&csf=1&download=1&e=WmBtkY"
     }
   }
 }
