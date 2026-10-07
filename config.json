@@ -2,13 +2,13 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "2.3.1",
-    "notes": "HearJot 2.3.1 — Faster update notices & Flowlio sign-in with MFEC (Microsoft)",
+    "version": "2.3.2",
+    "notes": "HearJot 2.3.2 — Delete the AI’s activity cards in chat & clearer silence warning",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.1-arm64.dmg?d=w619a4683908e4a6297ee6c10b101ae12&csf=1&download=1&e=Mpc0W0"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.2-arm64.dmg?d=w79de84512e914b1cbd2a0c9c576da32d&csf=1&download=1&e=mdkHnU"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.1.exe?d=w6d2d63500b8d403bbcc30dc40a4b8b22&csf=1&download=1&e=WmBtkY"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.2.exe?d=w8562d033367a4b8e8ee74a3034a4aac1&csf=1&download=1&e=tFuCUG"
     }
   }
 }
