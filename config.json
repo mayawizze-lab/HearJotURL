@@ -2,15 +2,33 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "2.3.3",
-    "notes": "HearJot 2.3.3 — What's new: every feature since 1.0, version by version",
+    "version": "2.3.4",
+    "notes": "HearJot 2.3.4 — Fewer \"Couldn't transcribe\", no more endless spinning",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.3-arm64.dmg?d=wc93fbcbd310248f19ed1c4c7a90e1abb&csf=1&download=1&e=sGgYLy"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.3.4-arm64.dmg?d=wcdd0e4eb841e44acac303a7a53a5023b&csf=1&download=1&e=bqvx2C"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.3.exe?d=wcda08e05d36d42eca9e512da1896c62c&csf=1&download=1&e=fbxs5J"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.3.4.exe?d=wc562bc619f1f483aacf95375a9e74669&csf=1&download=1&e=PgU4df"
     },
     "releases": [
+      {
+        "version": "2.3.4",
+        "date": "2026-10-07",
+        "features": [
+          {
+            "title": "Fewer \"Couldn't transcribe\"",
+            "detail": "ช่วงที่ AI ไม่ยอมถอด แอปแบ่งท่อนแล้วส่งใหม่ให้เอง"
+          },
+          {
+            "title": "No more endless spinning",
+            "detail": "AI ไม่ตอบ แอปตัดแล้วส่งใหม่เอง ไม่หมุนค้าง"
+          },
+          {
+            "title": "Clearer missed parts",
+            "detail": "ส่วนที่ถอดไม่ได้บอกเวลาจริงและเหตุผล"
+          }
+        ]
+      },
       {
         "version": "2.3.3",
         "date": "2026-10-07",
