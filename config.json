@@ -2,15 +2,45 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "2.5.0",
-    "notes": "HearJot 2.5.0 — New: Minutes of Meeting from the whole transcript 🎉",
+    "version": "3.0.0",
+    "notes": "HearJot 3.0.0 — New: flexible panels, live minutes and Open from Flowlio 🎉",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-2.5.0-arm64.dmg?d=wf8228185705c48199f0b90b2f1b72909&csf=1&e=beghL1&download=1"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-3.0.0-arm64.dmg?d=wa2c9435fd023434589a5ab94287c70e8&csf=1&e=Z3aGh0&download=1"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%202.5.0.exe?d=w3f271c983c8d46c8b2460de619c31ce5&csf=1&e=TcVJ4d&download=1"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%203.0.0.exe?d=w6112bbb9d8c94f9fa4e10a220c3b8ee9&csf=1&e=T5MEI8&download=1"
     },
     "releases": [
+      {
+        "version": "3.0.0",
+        "date": "2026-10-15",
+        "features": [
+          {
+            "title": "Flexible panel layout",
+            "detail": "ย่อ panel ให้เหลือแถบข้าง ปรับความกว้าง หรือดับเบิลคลิกหัว panel เพื่อขยายเต็มจอ แอปจำ layout ไว้ให้"
+          },
+          {
+            "title": "Live minutes",
+            "detail": "สรุปประชุมสดในแท็บ Minutes ระหว่างอัด"
+          },
+          {
+            "title": "Open from Flowlio",
+            "detail": "เปิด meeting จาก Flowlio มาฟังและอ่านได้ทันที พร้อมถาม Pika ในแชต"
+          },
+          {
+            "title": "Meeting languages",
+            "detail": "เลือกภาษาของประชุม แอปตรวจและแยกบรรทัดที่ถอดผิดภาษาให้"
+          },
+          {
+            "title": "Fewer invented lines",
+            "detail": "ข้อความที่ AI แต่งขึ้นจากเสียงเงียบถูกแยกไว้ให้ตรวจก่อน"
+          },
+          {
+            "title": "Time tags in notes",
+            "detail": "โน้ตใส่เวลาให้อัตโนมัติ กดที่เวลาเพื่อกระโดดไปฟังช่วงนั้น"
+          }
+        ]
+      },
       {
         "version": "2.5.0",
         "date": "2026-10-09",
