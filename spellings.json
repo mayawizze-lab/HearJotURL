@@ -1,6 +1,6 @@
 {
-  "company": ["MFEC"],
+  "company": [],
   "clients": [],
-  "products": ["HearJot", "Flowlio", "Pika", "Cloudera", "Denodo"],
-  "terms": ["GPT", "MCP", "ISO 42001"]
+  "products": [],
+  "terms": []
 }
