@@ -2,15 +2,29 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "3.0.0",
-    "notes": "HearJot 3.0.0 — New: flexible panels, live minutes and Open from Flowlio 🎉",
+    "version": "3.0.1",
+    "notes": "HearJot 3.0.1 — AI cost per meeting + Easy read 🎉",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-3.0.0-arm64.dmg?d=wa2c9435fd023434589a5ab94287c70e8&csf=1&e=Z3aGh0&download=1"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-3.0.1-arm64.dmg?d=w9d6d65e717a84e3493be9174078c22b6&csf=1&download=1&e=QpDVnY"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%203.0.0.exe?d=w6112bbb9d8c94f9fa4e10a220c3b8ee9&csf=1&e=T5MEI8&download=1"
+      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%203.0.1.exe?d=wd89c953c5667410dba75170ff542cc8b&csf=1&download=1&e=LwJksN"
     },
     "releases": [
+      {
+        "version": "3.0.1",
+        "date": "2026-10-17",
+        "features": [
+          {
+            "title": "AI cost per meeting",
+            "detail": "ชี้ปุ่ม (i) ที่ Session files เพื่อดูค่า AI ของประชุมนี้แยกตามประเภท"
+          },
+          {
+            "title": "Easy read",
+            "detail": "อ่าน minutes แบบสรุปผลก่อน เข้าใจเร็วในหน้าเดียว"
+          }
+        ]
+      },
       {
         "version": "3.0.0",
         "date": "2026-10-15",
