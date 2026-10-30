@@ -1,781 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HearJot — Meeting Intelligence Workspace สำหรับทีมที่ไม่อยากจดประชุมซ้ำ</title>
-    <meta name="description" content="HearJot หรือ เฮียจด เปลี่ยนเสียงประชุมให้เป็น transcript, timestamp note, MoM, action item และ AI Q&A ใน Meeting Intelligence Workspace เดียว">
-    <meta name="keywords" content="HearJot, AI Meeting, ถอดความเรียลไทม์, Teams Sync, บันทึกประชุม, AI Assistant, Notebook">
-    <link rel="icon" type="image/png" href="./assets/icon.png">
-    <link rel="stylesheet" href="./assets/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HearJot ย้ายบ้านแล้ว</title>
+<meta name="description" content="หน้าดาวน์โหลด HearJot ย้ายไปที่ dmhub.mfec.dev/hearjot — ต่อ VPN ของ MFEC แล้วกดเข้าได้เลย">
+<link rel="icon" href="assets/vpn/icon.png">
+<style>
+/* HearJot moved: this old address only sends people to the new download page, which lives on the
+   MFEC network. The page checks whether that network is reachable (VPN / office) and goes there by
+   itself when it is; until then เฮียจด asks for VPN and the button is right there. */
+@font-face { font-family: "Noto Sans Thai Looped"; font-weight: 100 900; font-display: swap; src: url("assets/vpn/fonts/NotoSansThaiLooped-thai.woff2") format("woff2"); unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC; }
+@font-face { font-family: "Noto Sans Thai Looped"; font-weight: 100 900; font-display: swap; src: url("assets/vpn/fonts/NotoSansThaiLooped-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Noto Sans Thai Looped"; font-weight: 100 900; font-display: swap; src: url("assets/vpn/fonts/NotoSansThaiLooped-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root { --sky: #e4f0ff; --k: #2B2440; --blue: #1d4ed8; --ink: #1e293b; --mute: #64748b; --teal: #15b8a6; --yellow: #F4D676; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; background: var(--sky); color: var(--ink); font: 16px/1.6 "Noto Sans Thai Looped", system-ui, sans-serif; overflow-x: hidden; }
+.clouds { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.clouds svg { position: absolute; width: 180px; animation: drift linear infinite; }
+@keyframes drift { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
+
+header { display: flex; align-items: center; gap: 12px; max-width: 960px; margin: 0 auto; padding: 18px 16px; }
+header img { width: 36px; height: 36px; border-radius: 10px; border: 2px solid var(--k); }
+.logo { font-weight: 800; font-size: 20px; } .logo b { color: var(--blue); }
+
+main { max-width: 960px; margin: 0 auto; padding: 8px 16px 48px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stage { position: relative; display: flex; justify-content: center; margin-top: 8px; }
+.rig { width: min(300px, 64vw); aspect-ratio: 2 / 3; position: relative; }
+@media (max-width: 760px) { .rig { width: min(220px, 56vw); } }
+.say { position: absolute; top: 2%; left: calc(100% - 40px); width: max-content; white-space: nowrap; text-align: left; background: #fff; border: 4px solid var(--k); border-radius: 26px; padding: 12px 20px 14px; font-weight: 800; font-size: 21px; line-height: 1.35; box-shadow: 0 5px 0 var(--k); transition: transform .3s; }
+.say b { color: var(--blue); }
+.say::after { content: ""; position: absolute; left: 30px; bottom: -16px; width: 22px; height: 22px; background: #fff; border-right: 4px solid var(--k); border-bottom: 4px solid var(--k); transform: rotate(45deg); }
+.say.pop { animation: pop .35s cubic-bezier(.2,.8,.3,1.4); }
+@keyframes pop { from { transform: scale(.85); } to { transform: none; } }
+
+h1 { margin: 14px 0 4px; font-size: clamp(28px, 6vw, 42px); line-height: 1.2; letter-spacing: -.01em; }
+h1 b { color: var(--blue); }
+.lead { margin: 0; color: #475569; font-size: 17px; }
+
+.go { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; background: var(--blue); color: #fff; border: 3px solid var(--k); border-radius: 16px; padding: 13px 22px; font-weight: 800; font-size: 18px; text-decoration: none; box-shadow: 0 5px 0 var(--k); transition: transform .15s, box-shadow .15s; }
+.go:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--k); }
+.go:active { transform: translateY(5px); box-shadow: 0 0 0 var(--k); }
+.go svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.url { margin-top: 12px; font-size: 14px; color: var(--mute); }
+.url code { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); background: #fff; border: 2px solid var(--k); border-radius: 8px; padding: 2px 8px; }
+
+.status { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 14px; font-weight: 700; color: #475569; background: #fff; border: 2px solid var(--k); border-radius: 999px; padding: 4px 14px 4px 10px; }
+.status i { width: 9px; height: 9px; border-radius: 50%; background: #94a3b8; }
+.status.wait i { background: var(--yellow); box-shadow: 0 0 0 3px rgba(244,214,118,.35); animation: blink 1.2s infinite; }
+.status.ok i { background: var(--teal); box-shadow: 0 0 0 3px rgba(21,184,166,.25); }
+@keyframes blink { 50% { opacity: .35; } }
+
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 760px; margin-top: 30px; text-align: left; }
+.step { background: #fff; border: 3px solid var(--k); border-radius: 18px; box-shadow: 0 5px 0 var(--k); padding: 14px 16px 16px; }
+.step .n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; border: 2.5px solid var(--k); }
+.step b { display: block; margin-top: 8px; font-size: 16px; }
+.step p { margin: 2px 0 0; font-size: 14px; color: #475569; line-height: 1.55; }
+
+@media (max-width: 760px) {
+  .stage { flex-direction: column; align-items: center; }
+  .say { white-space: normal; position: relative; left: auto; top: auto; order: -1; margin-bottom: 18px; font-size: 18px; max-width: 100%; }
+  .say::after { left: 50%; margin-left: -11px; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .clouds svg, .status.wait i, .say.pop { animation: none; } .go { transition: none; } }
+</style>
 </head>
 <body>
-    <div class="scroll-progress-bar" id="scrollProgress"></div>
+<div class="clouds" aria-hidden="true" id="clouds"></div>
+<header><img src="assets/vpn/icon.png" alt=""><span class="logo">Hear<b>Jot</b></span></header>
 
-    <!-- ===== NAVIGATION ===== -->
-    <header class="nav-header" id="navHeader">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <img src="./assets/icon.png" alt="HearJot mascot" class="nav-logo-icon">
-                <span>Hear<span class="blue">Jot</span></span>
-            </a>
+<main>
+  <div class="stage"><div class="rig" id="rig"></div><div class="say" id="say" role="status">ต่อ <b>VPN</b> ของ MFEC ก่อนนะ<br>แล้วกดปุ่มข้างล่างได้เลย!</div></div>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#panels" class="nav-link">Workspace</a>
-                <a href="#features" class="nav-link">ฟีเจอร์</a>
-                <a href="#demo" class="nav-link">ทดลองเล่น</a>
-                <a href="./user_manual.html" class="nav-link">Manual</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-            </nav>
+  <h1>HearJot ย้ายไป<b>บ้านใหม่</b>แล้ว</h1>
+  <p class="lead">หน้าดาวน์โหลดอยู่ในเครือข่าย MFEC ต่อ VPN หรือเปิดจากออฟฟิศก็เข้าได้เลย</p>
 
-            <div class="nav-right-group">
-                <a href="#download" class="nav-cta">
-                    <i class="fas fa-download"></i> ดาวน์โหลดฟรี
-                </a>
-                <button class="nav-hamburger" id="navHamburger" aria-label="เมนู">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+  <a class="go" id="go" href="https://dmhub.mfec.dev/hearjot/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>ไปหน้า HearJot ใหม่</a>
+  <div class="url">ที่อยู่ใหม่ <code>dmhub.mfec.dev/hearjot</code></div>
+  <div class="status wait" id="status"><i></i><span>กำลังเช็กว่าต่อ VPN แล้วหรือยัง…</span></div>
 
-        </div>
-    </header>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><b>ต่อ VPN ของ MFEC</b><p>อยู่ออฟฟิศอยู่แล้ว ข้ามข้อนี้ได้เลย</p></div>
+    <div class="step"><span class="n">2</span><b>กดปุ่ม ไปหน้า HearJot ใหม่</b><p>ถ้าต่อ VPN แล้ว หน้านี้จะพาไปให้เอง</p></div>
+    <div class="step"><span class="n">3</span><b>Sign in ด้วยบัญชี MFEC</b><p>แล้วกด Download สำหรับ Mac หรือ Windows</p></div>
+  </div>
+</main>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="hero">
-        <div class="glow-orb glow-orb-1"></div>
-        <div class="glow-orb glow-orb-2"></div>
-        <div class="hero-bg-dots"></div>
-        <div class="container hero-grid">
+<script>window.HEARJOT_RIG_NO_FONTFACE = true;</script>
+<script src="assets/vpn/hearjot-mascot-fullbody.js"></script>
+<script>
+(() => {
+  const NEW_URL = 'https://dmhub.mfec.dev/hearjot/';
+  // a small file on the new site: it loads only from inside the MFEC network
+  const PROBE = 'https://dmhub.mfec.dev/hearjot/assets/icon.png';
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (id) => document.getElementById(id);
 
-            <!-- Left: Text content -->
-            <div class="hero-content" data-animate="fade-up">
-                <div class="hero-pill">
-                    <span class="pill-dot"></span>
-                    HearJot · “เฮียจด” ผู้ช่วยจดประชุม AI
-                </div>
+  const CL = 'M40 80 q0 -40 40 -40 q14 -32 50 -22 q36 -10 46 26 q32 4 28 36Z';
+  $('clouds').innerHTML = [[8, 46, 0], [28, 70, -18], [52, 38, -9], [72, 64, -28], [88, 52, -4]].map(([top, dur, delay], i) =>
+    `<svg viewBox="30 10 190 80" style="top:${top}%;animation-duration:${dur}s;animation-delay:${delay}s;opacity:${.3 + (i % 2) * .2}"><path d="${CL}" fill="#fff" stroke="#2B2440" stroke-width="4" stroke-linejoin="round"/></svg>`).join('');
 
-                <h1 class="hero-h1">
-                    เลิกประชุมแบบ<br>
-                    <span class="hero-h1-blue glow-text-shimmer">มีแต่ไฟล์เสียง</span><br>
-                    แล้วค่อยตามงานทีหลัง
-                </h1>
+  // เฮียจด: idle blink + sway, looks at the pointer, mouth moves while the bubble changes
+  const R = window.HearJotRigFull;
+  let rig = null, pose = 'point', talkUntil = 0, talkFor = 0, mx = 0, my = 0, nextBlink = 1.5;
+  const base = () => Object.assign({}, R.DEFAULTS, R.OUTFITS.b2);
+  if (R) {
+    rig = R.mount($('rig'), Object.assign(base(), R.POSES[pose]));
+    addEventListener('pointermove', (e) => {
+      const r = $('rig').getBoundingClientRect();
+      mx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 500));
+      my = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 3)) / 400));
+    });
+    if (!RM) {
+      const t0 = performance.now();
+      const tick = (now) => {
+        const t = (now - t0) / 1000, s = rig.state(), P = R.POSES[pose] || {};
+        if (talkFor) { talkUntil = t + talkFor; talkFor = 0; }
+        const blink = t > nextBlink ? Math.max(0, 1 - Math.abs(t - nextBlink - .07) / .07) : 0;
+        if (t > nextBlink + .16) nextBlink = t + 2.4 + Math.random() * 2.6;
+        const upd = {
+          blink,
+          lookX: s.lookX + ((P.lookX || 0) * .5 + mx * .6 - s.lookX) * .08,
+          lookY: s.lookY + ((P.lookY || 0) * .5 + my * .4 - s.lookY) * .08,
+          squash: (P.squash || 0) + Math.sin(t * 2.2) * .06,
+          fx: (P.fx || 0) + t * .35, wavePhase: t * .9, hairSway: Math.sin(t * 1.7) * 1.5,
+          talk: t < talkUntil ? Math.floor(t * 12) : 0,
+        };
+        if (s.hands === 'wave') upd.armSwing = Math.sin(t * 6);
+        rig.set(upd);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+  function say(html, name) {
+    const b = $('say');
+    if (b.innerHTML === html) return;
+    b.innerHTML = html; b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    if (rig && name && name !== pose) { pose = name; const k = rig.state(); rig.set(Object.assign(base(), R.POSES[name], { lookX: k.lookX, lookY: k.lookY })); }
+    talkFor = 1.4;
+  }
+  function status(kind, text) { const s = $('status'); s.className = `status ${kind}`; s.lastElementChild.textContent = text; }
 
-                <p class="hero-sub">
-                    ปัญหาจริงไม่ใช่แค่ “จำไม่ได้ว่าใครพูดอะไร” แต่คือ <strong>เสียเวลาย้อนฟัง หา action item และสรุปส่งทีม</strong> หลังประชุมจบ<br><br>
-                    HearJot เปลี่ยนเสียงประชุมให้กลายเป็น <strong>ทรานสคริปต์ โน้ต MoM และคำตอบจาก AI</strong> ในหน้าจอเดียว พร้อม timestamp ที่ย้อนกลับไปตรวจเสียงจริงได้ทันที<br><span class="brand-pronounce">อ่านว่า “เฮียจด” — ให้เหมือนมีคนช่วยจด ช่วยหาหลักฐาน และช่วยสรุปงานต่อให้ตลอดประชุม</span>
-                </p>
-
-                <div class="hero-btns">
-                    <a href="https://mfeconcloud-my.sharepoint.com/:f:/g/personal/pattaraphol_mfec_co_th/IgDQgADQqSKUQKP5xnR1i8mFAZpSoNTig5h0gzT2AD9Vs1s" class="btn-primary-lg dl-link" data-platform="mac" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-apple"></i> ดาวน์โหลดสำหรับ Mac
-                    </a>
-                    <a href="https://mfeconcloud-my.sharepoint.com/:f:/g/personal/pattaraphol_mfec_co_th/IgDQgADQqSKUQKP5xnR1i8mFAZpSoNTig5h0gzT2AD9Vs1s" class="btn-outline-lg dl-link" data-platform="win" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-windows"></i> ดาวน์โหลดสำหรับ Windows
-                    </a>
-                </div>
-
-                <div class="hero-trust">
-                    <div class="trust-item"><i class="fas fa-check-circle"></i> ลดเวลาสรุปหลังประชุม</div>
-                    <div class="trust-item"><i class="fas fa-check-circle"></i> เก็บทั้งเสียงในห้องและออนไลน์</div>
-                    <div class="trust-item"><i class="fas fa-check-circle"></i> ถาม AI จากบริบทประชุมจริง</div>
-                </div>
-            </div>
-
-            <!-- Right: Mascot image + floating cards -->
-            <div class="hero-visual" data-animate="fade-left">
-                <div class="hero-img-wrap">
-                    <img src="./assets/hearjot_mascot_hero.clean.png" alt="HearJot mascot กำลังใช้งาน 3-panel workspace" class="hero-mascot">
-                    <div class="hero-particles" id="heroParticles"></div>
-                    <div class="hero-laptop-intake" aria-hidden="true"></div>
-
-                    <div class="float-card fc-1" data-animate="float">
-                        <div class="fc-icon"><i class="fas fa-list-ul"></i></div>
-                        <div class="fc-info">
-                            <div class="fc-label">Panel 1</div>
-                            <div class="fc-val">Live Transcript</div>
-                        </div>
-                    </div>
-
-                    <div class="float-card fc-2" data-animate="float" style="animation-delay:1.5s">
-                        <div class="fc-icon green"><i class="fas fa-book-open"></i></div>
-                        <div class="fc-info">
-                            <div class="fc-label">Panel 2</div>
-                            <div class="fc-val">Timestamp Notes</div>
-                        </div>
-                    </div>
-
-                    <div class="float-card fc-3" data-animate="float" style="animation-delay:0.8s">
-                        <div class="fc-icon purple"><i class="fas fa-robot"></i></div>
-                        <div class="fc-info">
-                            <div class="fc-label">Panel 3</div>
-                            <div class="fc-val">Context AI</div>
-                        </div>
-                    </div>
-
-                    <!-- Live recording pulse -->
-                    <div class="hero-live-badge">
-                        <span class="live-dot"></span> กำลังถอดความสด
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stats bar -->
-        <div class="container">
-            <div class="stats-bar" data-animate="fade-up">
-                <div class="stat-item">
-                    <span class="stat-num">1 Flow</span>
-                    <span class="stat-label">Intelligence Workspace เดียว</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-num">2-Way</span>
-                    <span class="stat-label">รับเสียงไมค์และเสียงประชุมออนไลน์</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-num">AI+</span>
-                    <span class="stat-label">สรุปและถามต่อจากบริบทจริง</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-num">Mac + Win</span>
-                    <span class="stat-label">รองรับทุกระบบ</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 3 PANELS SECTION ===== -->
-    <section class="section panels-section" id="panels">
-        <div class="container">
-            <div class="section-head" data-animate="fade-up">
-                <div class="section-tag">Meeting Intelligence Workspace</div>
-                <h2 class="section-h2">ศูนย์บัญชาการประชุมที่เปลี่ยนเสียงให้เป็นงานต่อได้ทันที</h2>
-                <p class="section-desc">Workspace ของ HearJot วาง transcript, notebook และ AI ไว้ใน flow เดียวกัน เพื่อให้ทีมเห็นหลักฐาน ตัดสินใจ และส่งต่อ action ได้โดยไม่ต้องประกอบข้อมูลเองหลังประชุม</p>
-            </div>
-
-            <!-- Workspace visual diagram -->
-            <div class="workspace-diagram" data-animate="scale-in">
-                <div class="workspace-frame">
-                    <div class="wf-titlebar">
-                        <div class="wf-dots">
-                            <span class="dot-r"></span>
-                            <span class="dot-y"></span>
-                            <span class="dot-g"></span>
-                        </div>
-                        <div class="wf-title">Hear<span>Jot</span> — ประชุมสรุปงบประมาณ Q2 2026</div>
-                        <div class="wf-actions">
-                            <span class="wf-chip teams-chip"><i class="fas fa-users"></i> Teams Synced</span>
-                            <span class="wf-chip mic-chip"><i class="fas fa-microphone"></i> Recording</span>
-                        </div>
-                    </div>
-                    <div class="wf-panels">
-                        <div class="wf-panel p1">
-                            <div class="wf-ph"><i class="fas fa-wave-square"></i> Transcription</div>
-                            <div class="wf-body">
-                                <div class="wf-seg"><span class="wf-time">00:01</span><span class="wf-name">คุณสมยศ:</span> เริ่มประชุมได้เลยครับ...</div>
-                                <div class="wf-seg"><span class="wf-time">00:08</span><span class="wf-name">คุณอัญชลี:</span> งบ Q2 เพิ่ม 15%...</div>
-                                <div class="wf-seg typing-seg"><span class="wf-time">00:15</span><span class="wf-name">คุณสมยศ:</span> <span class="wf-typing">ตกลง ให้ทีมทำ report<span class="cursor-blink">|</span></span></div>
-                            </div>
-                        </div>
-                        <div class="wf-panel p2">
-                            <div class="wf-ph"><i class="fas fa-book-open"></i> Notebook</div>
-                            <div class="wf-body">
-                                <div class="wf-note-h">📝 สรุปประชุม Q2</div>
-                                <div class="wf-note-b"><span class="ts-badge"><i class="fas fa-play"></i> 00:08</span> <strong>งบเพิ่ม 15%</strong> ทีม Finance อนุมัติ</div>
-                                <div class="wf-note-b"><span class="ts-badge"><i class="fas fa-play"></i> 00:15</span> มอบหมาย Report ภายในวันศุกร์</div>
-                            </div>
-                        </div>
-                        <div class="wf-panel p3">
-                            <div class="wf-ph"><i class="fas fa-robot"></i> AI Assistant</div>
-                            <div class="wf-body">
-                                <div class="wf-ai-msg ai"><i class="fas fa-sparkles"></i> สรุปประเด็นหลักได้เลยค่ะ!</div>
-                                <div class="wf-quick-btns">
-                                    <button class="wf-qbtn active">📋 สรุป Action Items</button>
-                                    <button class="wf-qbtn">📊 สรุปงบประมาณ</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panel cards detail -->
-            <div class="panel-cards" data-animate="fade-up">
-
-                <div class="panel-card" id="panel-card-1">
-                    <div class="pc-num">01</div>
-                    <div class="pc-icon blue-bg"><i class="fas fa-list-ul"></i></div>
-                    <h3>Panel 1 — Transcription</h3>
-                    <p class="pc-desc">จับประเด็นตั้งแต่ตอนที่ประชุมกำลังเกิดขึ้น ไม่ต้องรอไฟล์เสียงจบก่อนแล้วค่อยถอดย้อนหลัง เหมาะกับทีมที่ต้องการตาม decision และ action item ให้ทัน</p>
-                    <ul class="pc-list">
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-hand"></i></div>
-                            <div>
-                                <strong>Pause Auto-Scroll</strong>
-                                <span>หยุดเลื่อนชั่วคราวเพื่อย้อนอ่านประเด็นสำคัญได้ โดยระบบยังถอดความต่ออยู่ด้านหลัง</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-pencil"></i></div>
-                            <div>
-                                <strong>แก้ไขข้อความสด</strong>
-                                <span>แก้ชื่อคน ชื่อโปรเจกต์ หรือศัพท์เฉพาะได้ทันที ก่อนข้อมูลจะถูกใช้ต่อในโน้ตและ AI</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-magnifying-glass"></i></div>
-                            <div>
-                                <strong>Cmd+F Search</strong>
-                                <span>ค้นหาคำในทรานสคริปต์ได้ด้วย shortcut พร้อม highlight สีฟ้า</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-volume-xmark"></i></div>
-                            <div>
-                                <strong>Smart Silence Bypass</strong>
-                                <span>ช่วงเงียบไม่ควรถูกนับเป็นงาน ระบบช่วยข้าม silence เพื่อลด token และลดข้อความรบกวน</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="panel-card" id="panel-card-2">
-                    <div class="pc-num">02</div>
-                    <div class="pc-icon green-bg"><i class="fas fa-book-open"></i></div>
-                    <h3>Panel 2 — Notebook</h3>
-                    <p class="pc-desc">Notebook คือพื้นที่ที่ผู้ใช้จดเองระหว่างประชุม แล้วใช้เป็น reference ควบคู่ transcript เพื่อแก้คำผิด ศัพท์เฉพาะ และเติมบริบทสำคัญให้สรุปประชุมแม่นขึ้น โดยเฉพาะเวลาที่ต้องจับ decision, owner, deadline หรือศัพท์ภายในทีมที่ AI อาจได้ยินไม่ครบ</p>
-                    <ul class="pc-list">
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-bold"></i></div>
-                            <div>
-                                <strong>Rich Text Editor</strong>
-                                <span>จัดรูปแบบด้วย Bold, Italic, H1, H2, Bullet List, Quote — toolbar ใช้งานง่ายในตัว</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <strong>Timestamp Sync Click</strong>
-                                <span>คลิก timestamp เพื่อย้อนฟังวินาทีที่พูดเรื่องนั้น ลดเวลาหาหลักฐานจากไฟล์เสียงยาวๆ</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-image"></i></div>
-                            <div>
-                                <strong>Image Size Toggle</strong>
-                                <span>เก็บภาพสไลด์ ตาราง หรือหน้าจอ demo ไว้คู่กับโน้ต เพื่อไม่ให้บริบทสำคัญหายไป</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-compress-alt"></i></div>
-                            <div>
-                                <strong>Mini Mode Notebook</strong>
-                                <span>ย่อเหลือหน้าต่างจดโน้ตขนาดเล็กที่ปักไว้บนจอได้ เหมาะกับการจดประเด็นไปพร้อมกับดู Teams, สไลด์ หรือระบบที่กำลัง demo โดยไม่บังงานหลัก</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-file-export"></i></div>
-                            <div>
-                                <strong>Export โน้ต</strong>
-                                <span>ส่งต่อสรุปให้ทีม เอาไปแปะใน ticket, doc, หรือรายงานต่อได้โดยไม่ต้องจัดใหม่ทั้งชุด</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="panel-card" id="panel-card-3">
-                    <div class="pc-num">03</div>
-                    <div class="pc-icon purple-bg"><i class="fas fa-robot"></i></div>
-                    <h3>Panel 3 — AI Assistant</h3>
-                    <p class="pc-desc">AI ไม่ได้ตอบจาก prompt เปล่าๆ แต่ตอบจากทรานสคริปต์ โน้ต และภาพที่เกิดขึ้นในการประชุมเดียวกัน จึงถามต่อได้แม่นและใช้งานจริงกว่า</p>
-                    <ul class="pc-list">
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-bolt"></i></div>
-                            <div>
-                                <strong>Preset Prompt ด่วน</strong>
-                                <span>กดสรุป decision, risk, owner, deadline หรือ action item ได้ทันทีโดยไม่ต้องคิด prompt ใหม่ทุกครั้ง</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-camera"></i></div>
-                            <div>
-                                <strong>Screen Snapshot Context</strong>
-                                <span>แนบสไลด์หรือหน้าจอที่แชร์อยู่ให้ AI ใช้ตอบคำถาม ไม่หลุดบริบทจากสิ่งที่ทุกคนกำลังดู</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-chevron-right"></i></div>
-                            <div>
-                                <strong>Smart Panel Collapse</strong>
-                                <span>ย่อแผง AI เก็บเป็นแถบบางๆ เพิ่มพื้นที่หน้าจอ กดขยายขึ้นมาคุยอีกครั้งได้ทุกเวลา</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pc-feat-icon"><i class="fas fa-file-code"></i></div>
-                            <div>
-                                <strong>Export บทสนทนา AI</strong>
-                                <span>เก็บคำตอบของ AI เป็น Markdown สำหรับทำ meeting recap หรือส่งต่อให้คนที่ไม่ได้เข้าประชุม</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FEATURES ===== -->
-    <section class="section features-section" id="features">
-        <div class="glow-orb glow-orb-3"></div>
-        <div class="container">
-            <div class="section-head" data-animate="fade-up">
-                <div class="section-tag">ความสามารถพิเศษ</div>
-                <h2 class="section-h2">ฟีเจอร์ที่แก้ pain point หลังประชุม</h2>
-                <p class="section-desc">ทุกอย่างถูกออกแบบเพื่อลดงานซ้ำหลังประชุม: ไม่ต้องไล่ฟังใหม่ ไม่ต้องแยกโน้ตกับไฟล์เสียง และไม่ต้องสรุปเองจากศูนย์</p>
-            </div>
-
-            <div class="features-grid" data-animate="fade-up">
-
-                <div class="feat-card feat-lg">
-                    <div class="feat-card-bg-icon"><i class="fas fa-users-rectangle"></i></div>
-                    <div class="feat-tag teams-tag"><i class="fas fa-link"></i> Microsoft Teams</div>
-                    <h3>Teams Sync — ไม่พลาดเสียงฝั่งไหนในห้องประชุม</h3>
-                    <p>หลายครั้ง transcript พังเพราะเก็บได้แค่เสียงไมค์ตัวเอง HearJot ช่วยรับทั้ง <strong>เสียงคุณ</strong> และ <strong>เสียงผู้เข้าร่วมประชุมออนไลน์</strong> ผ่าน Desktop Audio Loopback แล้วส่งเข้า Transcription พร้อมกัน พร้อม indicator ให้เห็นว่าสัญญาณยังเข้าอยู่จริง</p>
-                    <div class="feat-chips">
-                        <span><i class="fas fa-check"></i> ลดปัญหา transcript ขาดช่วง</span>
-                        <span><i class="fas fa-check"></i> เหมาะกับ hybrid meeting</span>
-                        <span><i class="fas fa-check"></i> เห็นระดับเสียงแบบสด</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-file-import"></i></div>
-                    <h3>Batch Audio Import</h3>
-                    <p>มีไฟล์เสียงเก่าค้างอยู่ก็โยนเข้า HearJot ได้ ถอดความเป็นชุดพร้อม progress ชัดเจน แล้วเปิดฟังย้อนจาก transcript ได้ทันที</p>
-                    <div class="feat-mini-demo">
-                        <div class="batch-bar">
-                            <div class="batch-fill" style="width:72%"></div>
-                        </div>
-                        <span class="batch-pct">72% — กำลังถอดความ...</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-desktop"></i></div>
-                    <h3>Desktop Source Picker</h3>
-                    <p>เลือกแหล่งเสียงจากหน้าต่างที่ใช้งานจริง ลดความสับสนเวลามีหลายแอปเปิดพร้อมกัน และยังเคารพ permission ของระบบ</p>
-                    <div class="feat-source-list">
-                        <div class="src-item active-src"><i class="fab fa-microsoft"></i> Microsoft Teams</div>
-                        <div class="src-item"><i class="fas fa-video"></i> Zoom Meeting</div>
-                        <div class="src-item"><i class="fas fa-desktop"></i> Entire Screen</div>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-keyboard"></i></div>
-                    <h3>Global Custom Hotkeys</h3>
-                    <p>อยู่ใน Teams, Zoom หรือเปิดสไลด์อยู่ก็สั่งงานได้ทันที: mute, pause, snapshot โดยไม่ต้องสลับหน้าต่างกลับมา</p>
-                    <div class="hotkey-demo">
-                        <span class="hk"><kbd>⌘</kbd><kbd>Shift</kbd><kbd>M</kbd> Toggle Mic</span>
-                        <span class="hk"><kbd>⌘</kbd><kbd>Shift</kbd><kbd>S</kbd> Snapshot</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-wave-square"></i></div>
-                    <h3>Audio Player & Seek</h3>
-                    <p>เมื่อมีคนถามว่า “ตอนนั้นพูดว่าอะไรนะ” คุณไม่ต้องลากไฟล์เสียงเดาเอง แค่กด timestamp หรือ seek จาก timeline ที่ผูกกับ transcript</p>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-compress-alt"></i></div>
-                    <h3>Mini Mode — จดประชุมแบบไม่บังหน้าจอ</h3>
-                    <p>ย่อ HearJot เหลือเป็น Compact Notebook สำหรับจดประเด็นระหว่างดู Teams, สไลด์ หรือ demo ได้ต่อเนื่อง พร้อมปุ่มเริ่ม/หยุดฟังและสถานะเสียงในหน้าต่างเล็กเดียว</p>
-                    <div class="feat-chips">
-                        <span><i class="fas fa-thumbtack"></i> Auto Pin on Top</span>
-                        <span><i class="fas fa-arrows-alt-h"></i> Portrait / Landscape</span>
-                        <span><i class="fas fa-expand-alt"></i> Restore ได้ทันที</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-share-nodes"></i></div>
-                    <h3>แชร์ประชุมเป็น File Package เดียว</h3>
-                    <p>ส่งต่อทั้ง <strong>ทรานสคริปต์</strong> + <strong>โน้ต Rich Text</strong> + <strong>เสียงต้นฉบับ</strong> ใน package เดียว คนรับเปิดแล้วตรวจ timestamp ต่อได้ ไม่ต้องแนบไฟล์กระจัดกระจาย</p>
-                    <div class="feat-chips">
-                        <span><i class="fas fa-file-zipper"></i> Single File Package</span>
-                        <span><i class="fas fa-users"></i> แชร์ให้ทีม</span>
-                        <span><i class="fas fa-clock"></i> Timestamp ยังใช้ได้</span>
-                    </div>
-                </div>
-
-                <div class="feat-card feat-privacy">
-                    <div class="feat-card-icon lock-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>ควบคุม AI Model เอง</h3>
-                    <p>ทีมที่มีข้อกำหนดเรื่องข้อมูลสามารถเลือก AI Model ที่เหมาะกับ policy ได้เอง ไม่ต้องผูกกับผู้ให้บริการเดียว และ HearJot ไม่ทำตัวเป็นที่เก็บไฟล์เสียงของคุณ</p>
-                    <div class="privacy-badge"><i class="fas fa-sliders"></i> เลือก Model ได้เอง</div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-camera"></i></div>
-                    <h3>Screen Snapshot Context</h3>
-                    <p>กด snapshot ระหว่างประชุมเพื่อเก็บสไลด์ ตาราง หรือหน้าจอ demo ไว้กับ timestamp แล้วให้ AI ใช้ภาพนั้นเป็นบริบทตอนสรุปหรือตอบคำถาม</p>
-                    <div class="feat-chips">
-                        <span><i class="fas fa-image"></i> Visual Context</span>
-                        <span><i class="fas fa-clock"></i> ผูกกับเวลาเสียง</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <h3>MoM & Action Presets</h3>
-                    <p>เลือก prompt สำเร็จรูปสำหรับ Minutes of Meeting, Quick Summary, Action Items หรือรูปแบบที่ทีมใช้ประจำ แล้วให้ AI จัดสรุปตามโครงทันที</p>
-                    <div class="feat-chips">
-                        <span><i class="fas fa-list-check"></i> Action table</span>
-                        <span><i class="fas fa-file-lines"></i> MoM formal</span>
-                    </div>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-magnifying-glass"></i></div>
-                    <h3>Transcript Search & Citation</h3>
-                    <p>ค้นคำสำคัญใน transcript ได้ทันที พร้อม highlight และใช้ timestamp อ้างอิงกลับไปยังช่วงเสียงจริง ลดการถกเถียงว่าใครพูดอะไรตอนไหน</p>
-                </div>
-
-                <div class="feat-card">
-                    <div class="feat-card-icon"><i class="fas fa-floppy-disk"></i></div>
-                    <h3>Quick Save & Unsaved Guard</h3>
-                    <p>บันทึก session เป็นไฟล์งานเดียว และมีตัวเตือนก่อนปิดถ้ายังไม่ได้ save เหมาะกับประชุมยาวที่ transcript, note, chat และ snapshot สำคัญทั้งหมด</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== LIVE DEMO SIMULATOR ===== -->
-    <section class="section demo-section" id="demo">
-        <div class="container">
-            <div class="section-head" data-animate="fade-up">
-                <div class="section-tag">ทดลองเล่น</div>
-                <h2 class="section-h2">ลองดูว่าเสียงประชุมกลายเป็นงานต่อได้อย่างไร</h2>
-                <p class="section-desc">กดเริ่ม demo เพื่อเห็น flow จริง: เสียงเข้า transcript, โน้ตผูก timestamp และ AI ช่วยสรุปจากบริบทเดียวกัน</p>
-            </div>
-
-            <!-- App window mock -->
-            <div class="app-window-mock" data-animate="scale-in">
-                <!-- Titlebar -->
-                <div class="aw-titlebar">
-                    <div class="aw-dots">
-                        <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-                    </div>
-                    <div class="aw-logo">Hear<span>Jot</span></div>
-                    <div class="aw-center" id="awFileSlot">
-                        <span class="aw-placeholder" id="awPlaceholder">ไม่มีการบันทึกที่ใช้งานอยู่</span>
-                        <div class="aw-file-badge" id="awFileBadge" style="display:none">
-                            <span class="aw-badge-tag">LIVE</span>
-                            <span>teams_meeting_q2.webm</span>
-                        </div>
-                    </div>
-                    <div class="aw-right">
-                        <div class="aw-mic-chip muted" id="awMicChip">
-                            <i class="fas fa-microphone-slash" id="awMicIcon"></i>
-                            <div class="aw-mic-bars">
-                                <div class="aw-bar" id="aw-b1"></div>
-                                <div class="aw-bar" id="aw-b2"></div>
-                                <div class="aw-bar" id="aw-b3"></div>
-                            </div>
-                            <span class="aw-teams-text" id="awTeamsText" style="display:none">Teams Sync</span>
-                        </div>
-                        <div class="aw-source">
-                            <i class="fas fa-desktop"></i> Desktop Capture
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3 Panels -->
-                <div class="aw-panels" id="awPanels">
-                    <!-- Panel 1 -->
-                    <div class="aw-panel" id="awPanel1">
-                        <div class="aw-panel-header">
-                            <span><i class="fas fa-list-ul"></i> Transcription</span>
-                            <div class="aw-panel-tools">
-                                <button class="aw-tool-btn" id="awScrollToggle" title="Pause Auto-Scroll"><i class="fas fa-hand"></i></button>
-                                <button class="aw-tool-btn" title="ค้นหา"><i class="fas fa-magnifying-glass"></i></button>
-                            </div>
-                        </div>
-                        <div class="aw-panel-body" id="awTranscript">
-                            <div class="aw-empty" id="awTranscriptEmpty">
-                                <i class="fas fa-wave-square"></i>
-                                <p>กดปุ่ม "เริ่มประชุม" เพื่อดูการถอดความเรียลไทม์</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 2 -->
-                    <div class="aw-panel" id="awPanel2">
-                        <div class="aw-panel-header">
-                            <span><i class="fas fa-book-open"></i> Notebook</span>
-                            <div class="aw-toolbar">
-                                <span class="aw-tb-btn"><i class="fas fa-bold"></i></span>
-                                <span class="aw-tb-btn"><i class="fas fa-italic"></i></span>
-                                <span class="aw-tb-sep"></span>
-                                <span class="aw-tb-btn">H1</span>
-                                <span class="aw-tb-btn">H2</span>
-                                <span class="aw-tb-sep"></span>
-                                <span class="aw-tb-btn"><i class="fas fa-list-ul"></i></span>
-                            </div>
-                        </div>
-                        <div class="aw-panel-body" id="awNotebook">
-                            <div class="aw-empty" id="awNotebookEmpty">
-                                <i class="fas fa-file-signature"></i>
-                                <p>พื้นที่ให้ผู้ใช้จดเองระหว่างประชุม เพื่ออ้างอิง แก้ transcript และเติมบริบทสำคัญ</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 3 -->
-                    <div class="aw-panel" id="awPanel3">
-                        <div class="aw-panel-header">
-                            <span><i class="fas fa-robot"></i> AI Assistant</span>
-                            <div class="aw-panel-tools">
-                                <button class="aw-tool-btn" id="awClearChat" title="ล้างแชท"><i class="fas fa-trash-can"></i></button>
-                                <button class="aw-tool-btn" id="awCollapsePanel" title="ย่อแผง"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="aw-panel-body" id="awChat">
-                            <div class="aw-chat-welcome" id="awChatWelcome">
-                                <div class="aw-welcome-icon"><i class="fas fa-sparkles"></i></div>
-                                <h4>AI Co-Pilot พร้อมแล้ว</h4>
-                                <p>เริ่มประชุมก่อน แล้วถาม AI ได้เลยค่ะ</p>
-                            </div>
-                        </div>
-                        <div class="aw-chat-input-row">
-                            <input type="text" id="awChatInput" placeholder="ถามข้อมูลการประชุม..." disabled>
-                            <button id="awChatSend" disabled><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Controls footer -->
-                <div class="aw-controls">
-                    <button class="btn-primary-sm" id="awStartBtn">
-                        <i class="fas fa-circle-play"></i> เริ่มประชุม (Start Demo)
-                    </button>
-                    <button class="btn-outline-sm" id="awResetBtn" disabled>
-                        <i class="fas fa-rotate-left"></i> รีเซ็ต
-                    </button>
-                    <div class="aw-status" id="awStatus">สถานะ: หยุดทำงาน</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section class="section faq-section" id="faq">
-        <div class="container faq-layout">
-            <div class="faq-left" data-animate="fade-right">
-                <div class="section-tag">FAQ</div>
-                <h2 class="section-h2">คำถามที่<br>พบบ่อย</h2>
-                <p class="section-desc">ข้อมูลเพิ่มเติมเกี่ยวกับการใช้งาน HearJot</p>
-                <img src="./assets/hearjot_mascot_hero.clean.png" alt="HearJot mascot" class="faq-mascot">
-            </div>
-
-            <div class="faq-list" data-animate="fade-left">
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>ถอดความ Realtime ทำงานอย่างไร? มีดีเลย์ไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>HearJot ถอดความตามจังหวะการพูดสด เมื่อ AI วิเคราะห์ช่วงเสียงเสร็จ ข้อความจะปรากฏต่อเนื่องใน Panel 1 ทันที ไม่รอให้ประโยคจบก่อน ผู้ใช้จะเห็นข้อความพิมพ์ตามคำพูดจริงๆ ให้ความรู้สึก real-time ตลอดการประชุม</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Pause Auto-Scroll (ปุ่มไอคอนมือ) ใช้งานอย่างไร?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ระหว่างประชุม แอปจะเลื่อนหน้าจอตามประโยคใหม่อัตโนมัติ แต่ถ้าต้องการย้อนขึ้นไปอ่านหรือแก้ไขคำผิด ให้กดปุ่ม <strong>ไอคอนรูปมือ</strong> เพื่อล็อกหน้าจอ — ระบบถอดความยังทำงานต่อ แต่หน้าจอจะไม่กระตุกหนีสายตา ช่วยให้ทำงานโดยไม่เสียสมาธิ</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>แก้ไขข้อความในทรานสคริปต์ (Panel 1) ทำได้อย่างไร?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>เอาเมาส์ hover ไปที่กล่องข้อความที่ต้องการแก้ไข จะมี <strong>ไอคอนดินสอ</strong> ปรากฏขึ้นที่มุมขวา คลิกเพื่อเข้าสู่โหมดแก้ไข พิมพ์แก้คำผิดได้เลย แล้วกด Enter หรือคลิกนอกกล่องเพื่อบันทึก — ทำได้ทันทีขณะที่การประชุมยังดำเนินอยู่โดยไม่หยุดการถอดความ</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Teams Sync ทำงานอย่างไร? ต้อง Login Teams ไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ไม่ต้อง Login ค่ะ HearJot ใช้การดักรับ <strong>Desktop Audio Loopback</strong> และ <strong>Microphone Input</strong> พร้อมกัน เพียงเปิดสวิตช์ Teams Sync แล้วเลือกหน้าต่าง Teams จาก Source Picker ระบบจะจับเสียงจากทั้งไมค์คุณและเสียงสายประชุมเข้า Panel 1 โดยอัตโนมัติ มีแถบระดับเสียง (Mic Level Indicator) แสดงสถานะทั้งสองช่องแบบ real-time</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Smart Silence Bypass ช่วยประหยัด API Token ได้จริงไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>จริงครับ! ระบบตรวจจับพลังงานเสียง (RMS) แบบ real-time ถ้าช่วงใดเงียบหรือไม่มีเสียงพูด จะ <strong>ข้ามไปโดยอัตโนมัติ</strong> ไม่ส่งให้ AI วิเคราะห์ ช่วยลดค่าใช้จ่าย API และทำให้ทรานสคริปต์สะอาด ไม่มีบรรทัดว่างๆ สะสมจากช่วงเงียบ</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Timestamp Sync Click ในโน้ตใช้งานอย่างไร?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ทุกย่อหน้าในโน้ต Panel 2 จะมีป้ายเวลาเสียง เช่น <strong>[00:30]</strong> ติดอยู่ เมื่อกลับมาอ่านโน้ตในภายหลัง แค่คลิกป้ายเวลานั้น Audio Player ด้านล่างจะวิ่งไปยังวินาทีนั้นและเล่นเสียงให้ฟังทันที — ไม่ต้องเลื่อนหาเองเลย ช่วยประหยัดเวลาตรวจสอบเสียงประชุมย้อนหลังได้มาก</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Panel 3 AI Assistant ถาม-ตอบได้แค่ไหน? มีความจำไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>AI ใน Panel 3 ขับเคลื่อนด้วย <strong>Gemini</strong> ที่รู้บริบทการประชุมทั้งหมดจากทรานสคริปต์ใน Panel 1 สามารถสรุปประเด็น, ถามเจาะลึก, ทำ Action Items, หรือวิเคราะห์ได้เลย ระบบรองรับความจำบทสนทนา <strong>สูงสุด 20 เซสชัน</strong> ในครั้งเดียว และมีปุ่ม <strong>Preset Prompt</strong> ลัดให้กดด่วนโดยไม่ต้องพิมพ์คำสั่งยาวๆ</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Screen Snapshot Context ใน AI Chat ทำงานอย่างไร?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ระหว่างประชุมออนไลน์ที่มีการแชร์สไลด์หรือวิดีโอ คุณสามารถกดปุ่ม <strong>Snapshot</strong> เพื่อให้แอปถ่ายภาพหน้าจอ ณ ขณะนั้นและแนบเข้าไปในแชทกับ AI ใน Panel 3 ได้โดยตรง — AI จะอ่านข้อมูลจากสไลด์นั้นและนำมาประกอบการสรุปหรือตอบคำถามได้แม่นยำยิ่งขึ้น</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Batch Audio Import ถอดความไฟล์ที่บันทึกไว้แล้วได้ไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ได้ครับ! ลากไฟล์เสียงที่บันทึกไว้ใส่แอปได้โดยตรง ระบบจะถอดความแบบ Batch และแสดงแถบความคืบหน้า (%) ขณะประมวลผล พร้อม Audio Player ด้านล่างที่ sync กับทรานสคริปต์ — เหมาะสำหรับย้อนถอดเสียงการประชุมที่อัดเก็บไว้แล้ว</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>Global Hotkeys ตั้งค่าอย่างไร ใช้งานได้ขณะเปิดแอปอื่นไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ได้เลยครับ! Global Hotkeys ของ HearJot ทำงานระดับ <strong>System-wide</strong> หมายความว่าแม้จะกำลังพิมพ์ใน Word, Notion หรือเปิด Teams อยู่ ก็ยังกดคีย์ลัดเพื่อ <strong>Toggle เปิด/ปิดไมค์</strong> หรือ <strong>Snapshot ภาพหน้าจอ</strong> ได้ทันที ตั้งค่าคีย์ได้เองในหน้า Settings ของแอป</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>สามารถแชร์โน้ตให้คนอื่นได้ไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>ได้ครับ! HearJot สามารถส่งออกเป็น <strong>File Package เดียว</strong> ที่รวมทรานสคริปต์ + โน้ต Rich Text + ไฟล์เสียงต้นฉบับ เมื่อผู้รับเปิดด้วย HearJot ก็ยังคลิก Timestamp เพื่อย้อนฟังเสียงได้เหมือนเดิมทุกประการ เหมาะสำหรับส่งต่อให้ทีมที่ไม่ได้เข้าร่วมประชุม</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">
-                        <span>ข้อมูลเสียงส่งไปที่ไหน? ปลอดภัยไหม?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-a">
-                        <p>HearJot ส่งเสียงไปให้ AI Model ที่คุณเลือกเองเพื่อถอดความ — ไม่ว่าจะเป็น Gemini, GPT, หรือ Model อื่น <strong>HearJot ไม่เก็บไฟล์เสียงของคุณไว้บนเซิร์ฟเวอร์ตัวเอง</strong> ความเป็นส่วนตัวของข้อมูลขึ้นอยู่กับ Model ที่คุณเลือกใช้ — ทีมสามารถเลือก Model ที่องค์กรอนุญาตได้</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== DOWNLOAD CTA ===== -->
-    <section class="section download-section" id="download">
-        <div class="glow-orb glow-orb-4"></div>
-        <div class="container">
-            <div class="download-box" data-animate="scale-in">
-                <div class="dl-mascot-wrap">
-                    <img src="./assets/hearjot_download_illustration.transparent.png" alt="HearJot meeting intelligence preview" class="dl-mascot">
-                </div>
-                <div class="dl-content">
-                    <h2>ให้ “เฮียจด” ช่วยประชุม<br><span class="blue">แล้วทีมโฟกัสกับการตัดสินใจ</span></h2>
-                    <p>ดาวน์โหลดฟรี รองรับ macOS (Apple Silicon & Intel) และ Windows 10/11 พร้อม workspace สำหรับถอดความ จดโน้ต ถาม AI และสรุปงานต่อ</p>
-
-                    <div class="dl-cards">
-                        <div class="dl-card">
-                            <i class="fab fa-apple dl-os-icon"></i>
-                            <div class="dl-info">
-                                <h4>macOS Package</h4>
-                                <p>Apple Silicon (M1-M4) & Intel</p>
-                            </div>
-                            <a href="https://mfeconcloud-my.sharepoint.com/:f:/g/personal/pattaraphol_mfec_co_th/IgDQgADQqSKUQKP5xnR1i8mFAZpSoNTig5h0gzT2AD9Vs1s" class="btn-primary-sm dl-link" data-platform="mac" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-download"></i> ดาวน์โหลด .dmg
-                            </a>
-                        </div>
-                        <div class="dl-card">
-                            <i class="fab fa-windows dl-os-icon win"></i>
-                            <div class="dl-info">
-                                <h4>Windows Setup</h4>
-                                <p>Windows 10 / 11 x64</p>
-                            </div>
-                            <a href="https://mfeconcloud-my.sharepoint.com/:f:/g/personal/pattaraphol_mfec_co_th/IgDQgADQqSKUQKP5xnR1i8mFAZpSoNTig5h0gzT2AD9Vs1s" class="btn-outline-sm dl-link" data-platform="win" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-download"></i> ดาวน์โหลด .exe
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <a href="#" class="nav-logo">
-                    <img src="./assets/icon.png" alt="HearJot" class="footer-logo-icon">
-                    <span>Hear<span class="blue">Jot</span></span>
-                </a>
-                <p>AI Meeting Intelligence Workspace<br>เฮียจดช่วยถอดความ · จดโน้ต · สรุปงานต่อ — ในแอปเดียว</p>
-            </div>
-            <div class="footer-links">
-                <h4>ฟีเจอร์</h4>
-                <a href="#panels">Intelligence Workspace</a>
-                <a href="#features">Teams Sync</a>
-                <a href="#features">Batch Import</a>
-                <a href="#demo">ทดลองเล่น</a>
-            </div>
-            <div class="footer-links">
-                <h4>ช่วยเหลือ</h4>
-                <a href="./user_manual.html">Manual</a>
-                <a href="#faq">คำถามพบบ่อย</a>
-                <a href="#download">ดาวน์โหลด</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 HearJot · Developed by <strong>WakeUpz @MFEC</strong> ios-Data Team</p>
-        </div>
-    </footer>
-    <script src="./assets/js/config.js?v=no-prompt-v2"></script>
-    <script src="./assets/js/main.js?v=no-prompt-v2"></script>
+  // reachable → say so and go; not yet → ask for VPN and keep checking, so connecting is enough
+  let done = false;
+  function probe() {
+    if (done) return;
+    const img = new Image();
+    const timer = setTimeout(() => { img.src = ''; fail(); }, 4000);
+    img.onload = () => { clearTimeout(timer); ok(); };
+    img.onerror = () => { clearTimeout(timer); fail(); };
+    img.src = `${PROBE}?probe=${Date.now()}`;
+  }
+  function ok() {
+    if (done) return; done = true;
+    say('เจอ <b>VPN</b> แล้ว!<br>กำลังพาไปหน้าใหม่…', 'wave');
+    status('ok', 'ต่อ VPN แล้ว กำลังพาไป…');
+    setTimeout(() => { location.href = NEW_URL; }, 1600);
+  }
+  let first = true;
+  function fail() {
+    if (first) { say('ต่อ <b>VPN</b> ของ MFEC ก่อนนะ<br>แล้วกดปุ่มข้างล่างได้เลย!', 'point'); first = false; }
+    status('wait', 'ยังไม่ได้ต่อ VPN — ต่อแล้วหน้านี้จะพาไปเอง');
+    if (location.hash !== '#stay') setTimeout(probe, 5000);
+  }
+  // #stay shows the page without checking or redirecting (to look at it from inside the network)
+  if (location.hash === '#stay') fail(); else probe();
+})();
+</script>
 </body>
 </html>
