@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HearJot ย้ายบ้านแล้ว</title>
-<meta name="description" content="หน้าดาวน์โหลด HearJot ย้ายไปที่ dmhub.mfec.dev/hearjot — ต่อ VPN ของ MFEC แล้วกดเข้าได้เลย">
+<meta name="description" content="หน้าดาวน์โหลด HearJot ย้ายไปที่ hearjot.mfec.dev — ต่อ VPN ของ MFEC แล้วกดเข้าได้เลย">
 <link rel="icon" href="assets/vpn/icon.png">
 <style>
 /* HearJot moved: this old address only sends people to the new download page, which lives on the
@@ -77,8 +77,8 @@ h1 b { color: var(--blue); }
   <h1>HearJot ย้ายไป<b>บ้านใหม่</b>แล้ว</h1>
   <p class="lead">หน้าดาวน์โหลดอยู่ในเครือข่าย MFEC ต่อ VPN หรือเปิดจากออฟฟิศก็เข้าได้เลย</p>
 
-  <a class="go" id="go" href="https://dmhub.mfec.dev/hearjot/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>ไปหน้า HearJot ใหม่</a>
-  <div class="url">ที่อยู่ใหม่ <code>dmhub.mfec.dev/hearjot</code></div>
+  <a class="go" id="go" href="https://hearjot.mfec.dev/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>ไปหน้า HearJot ใหม่</a>
+  <div class="url">ที่อยู่ใหม่ <code>hearjot.mfec.dev</code></div>
   <div class="status wait" id="status"><i></i><span>กำลังเช็กว่าต่อ VPN แล้วหรือยัง…</span></div>
 
   <div class="steps">
@@ -92,9 +92,9 @@ h1 b { color: var(--blue); }
 <script src="assets/vpn/hearjot-mascot-fullbody.js"></script>
 <script>
 (() => {
-  const NEW_URL = 'https://dmhub.mfec.dev/hearjot/';
+  const NEW_URL = 'https://hearjot.mfec.dev/';
   // a small file on the new site: it loads only from inside the MFEC network
-  const PROBE = 'https://dmhub.mfec.dev/hearjot/assets/icon.png';
+  const PROBE = 'https://hearjot.mfec.dev/assets/icon.png';
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (id) => document.getElementById(id);
 
