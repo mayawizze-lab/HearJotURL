@@ -2,15 +2,41 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "3.0.1",
-    "notes": "HearJot 3.0.1 — AI cost per meeting + Easy read 🎉",
+    "version": "3.1.0",
+    "notes": "HearJot 3.1 Beta 1 — Meeting Notification, Pause, screen capture & more 🎉",
     "mac": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Mac/HearJot-3.0.1-arm64.dmg?d=w9d6d65e717a84e3493be9174078c22b6&csf=1&download=1&e=QpDVnY"
+      "url": "https://hearjot.mfec.dev/"
     },
     "win": {
-      "url": "https://mfeconcloud-my.sharepoint.com/:u:/r/personal/pattaraphol_mfec_co_th/Documents/Share%20File/Windows/HearJot%20Setup%203.0.1.exe?d=wd89c953c5667410dba75170ff542cc8b&csf=1&download=1&e=LwJksN"
+      "url": "https://hearjot.mfec.dev/"
     },
     "releases": [
+      {
+        "version": "3.1.0",
+        "date": "2026-11-04",
+        "features": [
+          {
+            "title": "Meeting notification",
+            "detail": "เข้าประชุม Teams แล้วแอปถามว่าจะอัดไหม ออกจากประชุมก็ถามว่าจะหยุดไหม"
+          },
+          {
+            "title": "Pause / Resume",
+            "detail": "พักการอัดได้ ไฟล์เสียงยังเป็นไฟล์เดียว"
+          },
+          {
+            "title": "Screen capture",
+            "detail": "เก็บภาพหรืออัดคลิปหน้าจอประชุมลงโน้ต หรือเปิด Auto capture ให้เก็บเอง"
+          },
+          {
+            "title": "Translate in chat",
+            "detail": "พิมพ์ไทยได้อังกฤษ พิมพ์อังกฤษได้ไทย"
+          },
+          {
+            "title": "Update inside the app",
+            "detail": "กด Update แล้ว Restart ได้เลย ไม่ต้องโหลดไฟล์เอง"
+          }
+        ]
+      },
       {
         "version": "3.0.1",
         "date": "2026-10-17",
