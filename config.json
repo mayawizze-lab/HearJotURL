@@ -2,8 +2,8 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "3.1.0",
-    "notes": "HearJot 3.1 Beta 1 — Meeting Notification, Pause, screen capture & more 🎉",
+    "version": "3.1.2",
+    "notes": "HearJot 3.1.2 — Fix performance issue ⚡",
     "mac": {
       "url": "https://hearjot.mfec.dev/"
     },
@@ -11,6 +11,16 @@
       "url": "https://hearjot.mfec.dev/"
     },
     "releases": [
+      {
+        "version": "3.1.2",
+        "date": "2026-11-09",
+        "features": [
+          {
+            "title": "Fix performance issue",
+            "detail": "เปิด MoM และกดปุ่มไวขึ้นมากในประชุมที่มีรูปเยอะ แอปเล็กลง อัปเดตรอบต่อไปโหลดน้อยลง"
+          }
+        ]
+      },
       {
         "version": "3.1.0",
         "date": "2026-11-04",
