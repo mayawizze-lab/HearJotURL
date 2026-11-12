@@ -2,8 +2,8 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "3.1.2",
-    "notes": "HearJot 3.1.2 — Fix performance issue ⚡",
+    "version": "3.1.3",
+    "notes": "HearJot 3.1.3 — Update MoM UI ✨",
     "mac": {
       "url": "https://hearjot.mfec.dev/"
     },
@@ -11,6 +11,37 @@
       "url": "https://hearjot.mfec.dev/"
     },
     "releases": [
+      {
+        "version": "3.1.3",
+        "date": "2026-11-12",
+        "features": [
+          {
+            "icon": "file-text",
+            "title": "Update MoM UI",
+            "detail": "เนื้อหา MoM ตรงกันทุกที่ ทั้ง Minutes tab, หน้าแก้ไข, Word และ Flowlio แก้ที่เดียวเปลี่ยนทุกที่"
+          },
+          {
+            "icon": "camera",
+            "title": "Teams content only",
+            "detail": "ภาพและคลิปจากหน้าต่าง Teams เก็บเฉพาะเนื้อหาประชุม ไม่ติดแถบเมนู"
+          },
+          {
+            "icon": "notebook-pen",
+            "title": "File name suggested",
+            "detail": "Save ครั้งแรกตั้งชื่อไฟล์ให้จากชื่อประชุม Teams หรือเนื้อหาประชุม"
+          },
+          {
+            "icon": "book-open-text",
+            "title": "Company spellings",
+            "detail": "ดูคำสะกดชื่อบริษัท ลูกค้า และ product ได้ที่เมนู ☰ อัปเดตจาก server อัตโนมัติ"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Fixes and security",
+            "detail": "Teams Sync จับปุ่มไมค์ถูกอีกครั้ง ไม่มี JSON ดิบโผล่ในแชท และปิดช่องโหว่ความปลอดภัย"
+          }
+        ]
+      },
       {
         "version": "3.1.2",
         "date": "2026-11-09",
