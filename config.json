@@ -2,8 +2,8 @@
   "baseUrl": "https://gpt.mfec.co.th/litellm",
   "flowlioUrl": "https://dmhub.mfec.dev/Flowlio",
   "update": {
-    "version": "3.2.0",
-    "notes": "HearJot 3.2 — Live draft on this computer ✨",
+    "version": "3.2.2",
+    "notes": "HearJot 3.2.2 — Dictate in chat, Easy read anytime 🎙️",
     "mac": {
       "url": "https://hearjot.mfec.dev/"
     },
@@ -11,6 +11,32 @@
       "url": "https://hearjot.mfec.dev/"
     },
     "releases": [
+      {
+        "version": "3.2.2",
+        "date": "2026-11-24",
+        "features": [
+          {
+            "icon": "mic",
+            "title": "Dictate in chat",
+            "detail": "พูดใส่ช่องแชตได้ ข้อความขึ้นสดขณะพูด กด Enter ส่งได้เลย"
+          },
+          {
+            "icon": "file-text",
+            "title": "Easy read anytime",
+            "detail": "เปิดสรุปอ่านง่ายระหว่างอัดได้ และบันทึกเป็น .html ส่งลูกค้าได้"
+          },
+          {
+            "icon": "message-square",
+            "title": "New chat box",
+            "detail": "พิมพ์ได้หลายบรรทัด สลับ Chat / Pika / Translate ได้ในช่องพิมพ์"
+          },
+          {
+            "icon": "zap",
+            "title": "Lighter capture on Windows",
+            "detail": "Auto capture และ Capture meeting window บน Windows เบาลง ไม่หน่วงเครื่อง"
+          }
+        ]
+      },
       {
         "version": "3.2.0",
         "date": "2026-11-17",
